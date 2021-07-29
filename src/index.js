@@ -25,7 +25,10 @@ const comp = () => <amp-something className="something" />
 `;
 
 const swc = import("@swc/wasm-web");
-swc.then(swc => {
+swc.then(async swc => {
+  console.log(await swc.default());
+
+
   console.log("SWC Loaded", swc);
   let result = swc.transformSync(code, settings);
   console.log("result from transformSync", result);
